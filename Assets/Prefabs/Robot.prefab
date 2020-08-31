@@ -2597,7 +2597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8440795993899132757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.011, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8262137470255309079}
@@ -2861,7 +2861,7 @@ Transform:
   m_GameObject: {fileID: 8782814141673077677}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -20.13, y: -5.071, z: 0}
-  m_LocalScale: {x: 0.5000001, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3847849492930556986}
   - {fileID: 2719358157086710634}
@@ -2881,7 +2881,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -2948,7 +2948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"declarations":{"collection":{"$content":[{"name":"speed","value":{"$content":500.0,"$type":"System.Single"},"$version":"A"},{"name":"groundCheck","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"jumpForce","value":{"$content":300.0,"$type":"System.Single"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _json: '{"declarations":{"collection":{"$content":[{"name":"speed","value":{"$content":10.0,"$type":"System.Single"},"$version":"A"},{"name":"groundCheck","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"jumpForce","value":{"$content":30.0,"$type":"System.Single"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
     - {fileID: 8440795993899132757}
 --- !u!1 &8794447086738223404
