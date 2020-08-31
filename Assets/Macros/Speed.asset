@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: Speed
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[{"hasDefaultValue":true,"defaultValue":{"$content":0.0,"$type":"System.Single"},"_type":"System.Single","key":"ObjectSpeed","label":null,"summary":null,"hideLabel":false}],"valueOutputDefinitions":[{"_type":"System.Single","key":"Speed","label":null,"summary":null,"hideLabel":false}],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":46.0,"y":-45.0},"guid":"e82f4c05-1020-4542-8275-d6740b20f0c8","$version":"A","$type":"Bolt.GenericMultiply","$id":"11"},{"member":{"name":"deltaTime","parameterTypes":null,"targetType":"UnityEngine.Time","targetTypeName":"UnityEngine.Time","$version":"A"},"defaultValues":{},"position":{"x":-146.0,"y":35.0},"guid":"e952c7ea-2366-4a93-bcc3-9ac37f90bd21","$version":"A","$type":"Bolt.GetMember","$id":"13"},{"defaultValues":{},"position":{"x":210.0,"y":-14.0},"guid":"4c0aee1c-7c19-46cb-ba81-28176a06cf1a","$version":"A","$type":"Bolt.GraphOutput","$id":"16"},{"defaultValues":{},"position":{"x":-136.0,"y":-96.0},"guid":"07d03832-74f0-4f93-a959-7a63ad77c55d","$version":"A","$type":"Bolt.GraphInput","$id":"18"},{"sourceUnit":{"$ref":"13"},"sourceKey":"value","destinationUnit":{"$ref":"11"},"destinationKey":"b","guid":"c9041205-9294-4469-9e96-0d1883ec273d","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"11"},"sourceKey":"product","destinationUnit":{"$ref":"16"},"destinationKey":"Speed","guid":"b012de44-4f22-4028-9917-37ce9360f3d2","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"18"},"sourceKey":"ObjectSpeed","destinationUnit":{"$ref":"11"},"destinationKey":"a","guid":"037425d4-3dce-4cd7-8a3c-928903e4a0e8","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences: []
