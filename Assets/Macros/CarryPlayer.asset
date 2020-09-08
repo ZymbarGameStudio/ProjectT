@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: CarryPlayer
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":376.8576,"y":228.9987},"zoom":1.0,"elements":[{"nest":{"source":"Macro","macro":0,"embed":null},"defaultValues":{"Tag":{"$content":"Player","$type":"System.String"}},"position":{"x":29.0,"y":-252.0},"guid":"82c853ed-340f-4d1d-8ff4-354a2db6ec88","$version":"A","$type":"Bolt.SuperUnit","$id":"9"},{"nest":{"source":"Macro","macro":1,"embed":null},"defaultValues":{"Tag":{"$content":"Player","$type":"System.String"}},"position":{"x":29.0,"y":114.0},"guid":"a0862865-9f54-470e-ac0b-e2ca7c8448ab","$version":"A","$type":"Bolt.SuperUnit","$id":"12"},{"member":{"name":"transform","parameterTypes":null,"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null},"position":{"x":283.0,"y":248.0},"guid":"d496a491-4075-4b36-b8bc-cf6d127624d9","$version":"A","$type":"Bolt.GetMember","$id":"15"},{"chainable":false,"member":{"name":"SetParent","parameterTypes":["UnityEngine.Transform"],"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null,"%p":null},"position":{"x":521.0,"y":130.0},"guid":"ab3b404f-b03d-4e48-b678-f63325a5f95e","$version":"A","$type":"Bolt.InvokeMember","$id":"18"},{"chainable":false,"member":{"name":"SetParent","parameterTypes":["UnityEngine.Transform"],"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null,"%p":null},"position":{"x":397.0,"y":-242.0},"guid":"2efbaaa9-db84-46ff-926e-fb3a38975eb7","$version":"A","$type":"Bolt.InvokeMember","$id":"21"},{"defaultValues":{},"position":{"x":157.0,"y":-102.0},"guid":"0d2f7cf7-8a8c-4f03-981d-73142fe935b2","$version":"A","$type":"Bolt.Null","$id":"24"},{"sourceUnit":{"$ref":"9"},"sourceKey":"Exit","destinationUnit":{"$ref":"21"},"destinationKey":"enter","guid":"8bba3df6-e2f1-49ee-a176-efce798cae01","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"12"},"sourceKey":"Collision","destinationUnit":{"$ref":"18"},"destinationKey":"enter","guid":"c651d64f-1b7a-4b55-9e5f-5c578298debb","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"9"},"sourceKey":"Game
+      Object","destinationUnit":{"$ref":"21"},"destinationKey":"target","guid":"7d6dfba9-3b1c-42cc-b727-6457930b362a","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"12"},"sourceKey":"Game
+      Object","destinationUnit":{"$ref":"18"},"destinationKey":"target","guid":"f5457509-904d-4b57-ab29-cd304f363d77","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"15"},"sourceKey":"value","destinationUnit":{"$ref":"18"},"destinationKey":"%p","guid":"cc90eb9a-9dda-4ab3-ba1f-69bbff577788","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"24"},"sourceKey":"null","destinationUnit":{"$ref":"21"},"destinationKey":"%p","guid":"67b46405-4c90-4472-b29a-bb9a2ec8b06c","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 08695a98e18f22b44ab122a73cbfe069, type: 2}
+    - {fileID: 11400000, guid: a862c2346357f8f428bd24d760b8d4b2, type: 2}
