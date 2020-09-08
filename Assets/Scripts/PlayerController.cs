@@ -4,29 +4,27 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private CharacterController _controller;
+    private Rigidbody _rigidbody;
     private Animator _animator;
 
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
+    private bool groundedPlayer = false;
 
     [SerializeField]
     private float playerSpeed = 10.0f;
     [SerializeField]
-    private float jumpHeight = 25.0f;
+    private float jumpHeight = 30f;
     [SerializeField]
-    private float gravityValue = -9.81f;
+    private float gravity = -70f;
 
     private Dictionary<Vector3, float> _rotationMap;
     private float movement = 0f;
 
     private void Start()
     {
-        _controller = GetComponent<CharacterController>();
+        _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
 
         InitializeRotationMap();
-
     }
 
     void FixedUpdate()
@@ -36,13 +34,6 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        groundedPlayer = _controller.isGrounded;
-
-        if (groundedPlayer && playerVelocity.y < 0)
-        {
-            playerVelocity.y = 0f;
-        }
-
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         movement = Mathf.Abs(move.x) + Mathf.Abs(move.z);
@@ -53,25 +44,26 @@ public class PlayerController : MonoBehaviour
 
             _rotationMap.TryGetValue(move, out rotation);
 
-            if (rotation != -1.0f)
+            if (rotation != -1.0f) 
+            {
                 transform.rotation = Quaternion.Euler(0, rotation, 0);
+            }
         }
 
-        if (move != Vector3.zero)
+        move *= playerSpeed;
+        move.y = _rigidbody.velocity.y;
+
+        _rigidbody.velocity = move;
+
+        if (Input.GetButtonDown("Jump") && groundedPlayer) 
         {
-            _controller.Move(move * Time.deltaTime * playerSpeed);
+            _rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
 
-            gameObject.transform.forward = move;
+            groundedPlayer = false;
         }
-
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
-            playerVelocity.y += jumpHeight;
-
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        _controller.Move(playerVelocity * Time.deltaTime);
 
         _animator.SetFloat("Movement", movement);
-        _animator.SetBool("Grounded", _controller.isGrounded);
+        _animator.SetBool("Grounded", groundedPlayer);
     }
 
     private void InitializeRotationMap()
@@ -86,5 +78,11 @@ public class PlayerController : MonoBehaviour
         _rotationMap.Add(new Vector3(1, 0, 1), 45);
         _rotationMap.Add(new Vector3(1, 0, -1), 135);
         _rotationMap.Add(new Vector3(-1, 0, -1), -135);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.transform.position.y < transform.position.y)
+            groundedPlayer = true;
     }
 }
