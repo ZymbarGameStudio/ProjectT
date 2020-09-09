@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
             _rotationMap.TryGetValue(move, out rotation);
 
-            if (rotation != -1.0f) 
+            if (rotation != -1.0f)
             {
                 transform.rotation = Quaternion.Euler(0, rotation, 0);
             }
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
         _rigidbody.velocity = move;
 
-        if (Input.GetButtonDown("Jump") && groundedPlayer) 
+        if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
             _rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
 
