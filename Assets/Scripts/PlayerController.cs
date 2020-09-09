@@ -13,11 +13,10 @@ public class PlayerController : MonoBehaviour
     private float playerSpeed = 10.0f;
     [SerializeField]
     private float jumpHeight = 30f;
-    [SerializeField]
-    private float gravity = -70f;
 
     private Dictionary<Vector3, float> _rotationMap;
     private float movement = 0f;
+    private float currentRotation = -1f;
 
     private void Start()
     {
@@ -34,20 +33,15 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 move = new Vector3(Mathf.Ceil(Input.GetAxis("Horizontal")), 0, Mathf.Ceil(Input.GetAxis("Vertical")));
 
         movement = Mathf.Abs(move.x) + Mathf.Abs(move.z);
 
         if (movement != 0)
         {
-            var rotation = -1.0f;
+            _rotationMap.TryGetValue(move, out currentRotation);
 
-            _rotationMap.TryGetValue(move, out rotation);
-
-            if (rotation != -1.0f)
-            {
-                transform.rotation = Quaternion.Euler(0, rotation, 0);
-            }
+            _rigidbody.rotation = Quaternion.Euler(0, currentRotation, 0);
         }
 
         move *= playerSpeed;
@@ -82,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.transform.position.y < transform.position.y)
+        if (collision.gameObject.transform.position.y <= transform.position.y)
             groundedPlayer = true;
     }
 }
