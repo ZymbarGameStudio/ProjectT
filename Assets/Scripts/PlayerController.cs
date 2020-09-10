@@ -33,16 +33,16 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        var horizontalMovement = Input.GetAxis("Horizontal") > 0 ? Mathf.Ceil(Input.GetAxis("Horizontal")) : Mathf.Floor(Input.GetAxis("Horizontal"));
-        var verticalMovement = Input.GetAxis("Vertical") > 0 ? Mathf.Ceil(Input.GetAxis("Vertical")) : Mathf.Floor(Input.GetAxis("Vertical"));
-
-        Vector3 move = new Vector3(horizontalMovement, 0, verticalMovement);
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         movement = Mathf.Abs(move.x) + Mathf.Abs(move.z);
 
         if (movement != 0)
         {
-            _rotationMap.TryGetValue(move, out currentRotation);
+            var horizontalMovement = Input.GetAxis("Horizontal") > 0 ? Mathf.Ceil(Input.GetAxis("Horizontal")) : Mathf.Floor(Input.GetAxis("Horizontal"));
+            var verticalMovement = Input.GetAxis("Vertical") > 0 ? Mathf.Ceil(Input.GetAxis("Vertical")) : Mathf.Floor(Input.GetAxis("Vertical"));
+
+            _rotationMap.TryGetValue(new Vector3(horizontalMovement, 0, verticalMovement), out currentRotation);
 
             _rigidbody.rotation = Quaternion.Euler(0, currentRotation, 0);
         }
