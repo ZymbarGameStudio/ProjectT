@@ -33,7 +33,10 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        Vector3 move = new Vector3(Mathf.Ceil(Input.GetAxis("Horizontal")), 0, Mathf.Ceil(Input.GetAxis("Vertical")));
+        var horizontalMovement = Input.GetAxis("Horizontal") > 0 ? Mathf.Ceil(Input.GetAxis("Horizontal")) : Mathf.Floor(Input.GetAxis("Horizontal"));
+        var verticalMovement = Input.GetAxis("Vertical") > 0 ? Mathf.Ceil(Input.GetAxis("Vertical")) : Mathf.Floor(Input.GetAxis("Vertical"));
+
+        Vector3 move = new Vector3(horizontalMovement, 0, verticalMovement);
 
         movement = Mathf.Abs(move.x) + Mathf.Abs(move.z);
 
@@ -51,9 +54,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
-            _rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-
             groundedPlayer = false;
+
+            _rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
 
         _animator.SetFloat("Movement", movement);
