@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
         _rigidbody.velocity = move;
 
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        if (Input.GetButton("Jump") && groundedPlayer)
         {
             groundedPlayer = false;
 
@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour
 
         _animator.SetFloat("Movement", movement);
         _animator.SetBool("Grounded", groundedPlayer);
+
+        Debug.Log($"Grounded: {groundedPlayer}");
     }
 
     private void InitializeRotationMap()
